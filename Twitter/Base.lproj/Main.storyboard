@@ -20,6 +20,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fry-Zc-H1F"/>
+                                    <segue destination="gzv-Bk-Lvb" kind="modal" identifier="loginSegue" id="62s-xw-Q27"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -29,6 +30,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="214.40000000000001" y="142.94666666666666"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7dj-GC-zZe">
+            <objects>
+                <viewController storyboardIdentifier="TweetsViewController" id="gzv-Bk-Lvb" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qf6-aN-Gqm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GVr-xB-zXI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="566" y="149"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
