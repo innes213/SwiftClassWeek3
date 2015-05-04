@@ -30,6 +30,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
             success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
                 var tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
                 println("Home timeline retreival successful")
+                println("\(response)")
                 completion(tweets: tweets, error: nil)
                 
             }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
