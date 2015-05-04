@@ -73,14 +73,14 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxW-6X-mJg">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00 PM" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxW-6X-mJg">
                                                     <rect key="frame" x="267" y="8" width="45" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzd-fI-2N6">
-                                                    <rect key="frame" x="86" y="27" width="184" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Tweet text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzd-fI-2N6">
+                                                    <rect key="frame" x="86" y="27" width="194" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -90,8 +90,9 @@
                                                 <constraint firstItem="bzd-fI-2N6" firstAttribute="leading" secondItem="qYF-NL-SLi" secondAttribute="trailing" constant="8" id="6tu-5T-qHe"/>
                                                 <constraint firstItem="qYF-NL-SLi" firstAttribute="leading" secondItem="esw-XN-rrp" secondAttribute="leading" constant="8" id="7WZ-D0-5kk"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qYF-NL-SLi" secondAttribute="bottom" constant="10" id="GcL-w9-ekY"/>
-                                                <constraint firstAttribute="trailing" secondItem="bzd-fI-2N6" secondAttribute="trailing" constant="50" id="Jmd-5m-Jld"/>
-                                                <constraint firstItem="bzd-fI-2N6" firstAttribute="top" secondItem="DpT-SS-9hO" secondAttribute="bottom" constant="2" id="Kx1-FX-Utc"/>
+                                                <constraint firstAttribute="trailing" secondItem="bzd-fI-2N6" secondAttribute="trailing" constant="40" id="Jmd-5m-Jld"/>
+                                                <constraint firstItem="bzd-fI-2N6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="DpT-SS-9hO" secondAttribute="bottom" constant="2" id="Kx1-FX-Utc"/>
+                                                <constraint firstItem="bzd-fI-2N6" firstAttribute="top" secondItem="dxW-6X-mJg" secondAttribute="bottom" constant="7" id="Ycq-jK-Snk"/>
                                                 <constraint firstItem="DpT-SS-9hO" firstAttribute="leading" secondItem="qYF-NL-SLi" secondAttribute="trailing" constant="8" id="aNS-ym-zi4"/>
                                                 <constraint firstItem="dxW-6X-mJg" firstAttribute="leading" secondItem="DpT-SS-9hO" secondAttribute="trailing" constant="8" id="gh9-ck-6e6"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bzd-fI-2N6" secondAttribute="bottom" constant="10" id="m4h-LF-Wgh"/>

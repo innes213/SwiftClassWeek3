@@ -10,6 +10,7 @@ import UIKit
 
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    var refreshControl: UIRefreshControl!
     @IBOutlet weak var tableView: UITableView!
     @IBAction func logoutButton(sender: AnyObject) {
         User.currentUser?.logout()
@@ -27,11 +28,31 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
         
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)
+        
         TwitterClient.sharedInstance.homeTimeWithParams(nil,
             completion: { (tweets, error) -> () in self.tweets = tweets
             self.tableView.reloadData()
         })
         
+    }
+    
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
+    
+    func onRefresh() {
+        // simulare network latency
+        delay(2, closure: {
+            self.refreshControl.endRefreshing()
+        })
     }
 
     override func didReceiveMemoryWarning() {
