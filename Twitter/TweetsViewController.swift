@@ -49,10 +49,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func onRefresh() {
-        // simulare network latency
-        delay(2, closure: {
-            self.refreshControl.endRefreshing()
+        TwitterClient.sharedInstance.homeTimeWithParams(nil,
+            completion: { (tweets, error) -> () in self.tweets = tweets
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
         })
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -30,7 +30,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
             success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
                 var tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
                 println("Home timeline retreival successful")
-                println("\(response)")
+                //println("\(response)")
                 completion(tweets: tweets, error: nil)
                 
             }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
@@ -39,6 +39,27 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
                 completion(tweets: nil, error: error)
         })
         
+    }
+    
+    func postUpdate(updateText: String, completion: (error: NSError?) -> ()) {
+        
+        var params = NSDictionary(object: updateText, forKey: "status")
+        //{"status":"\(updateText)"} as NSDictionary?
+        //params. = "{status:\(updateText)}" as NSDictionary
+        //params.setValue(updateText, forKey: "status")
+        
+        POST("1.1/statuses/update.json",
+            parameters: params,
+            success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                println("Update successful")
+                println("\(response)")
+                completion(error: nil)
+            }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                println("Error posting update")
+                println(error.description)
+                completion(error: error)
+        })
+            
     }
     
     func loginWithCompletion(completion: (user: User?, error: NSError?) -> ()) {

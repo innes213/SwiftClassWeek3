@@ -135,7 +135,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Tweet" id="bNN-N9-ApM">
                             <connections>
-                                <segue destination="oFv-OB-Mos" kind="push" id="y2I-37-zzN"/>
+                                <segue destination="oFv-OB-Mos" kind="push" id="nj4-S9-Zrl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -147,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="1098" y="149"/>
         </scene>
-        <!--View Controller-->
+        <!--Compose-->
         <scene sceneID="JLG-C7-jsd">
             <objects>
-                <viewController id="oFv-OB-Mos" sceneMemberID="viewController">
+                <viewController id="oFv-OB-Mos" customClass="ComposeViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dSX-kw-8mx"/>
                         <viewControllerLayoutGuide type="bottom" id="FtL-W6-R5Y"/>
@@ -158,13 +158,48 @@
                     <view key="view" contentMode="scaleToFill" id="gbz-JR-po9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characters left: 140" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AuT-OB-iaH">
+                                <rect key="frame" x="217" y="287" width="93" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PY4-jJ-5ea">
+                                <rect key="frame" x="10" y="79" width="303" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="hde-hV-gvo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AuT-OB-iaH" firstAttribute="top" secondItem="PY4-jJ-5ea" secondAttribute="bottom" constant="8" id="3gF-5s-j9y"/>
+                            <constraint firstAttribute="trailing" secondItem="AuT-OB-iaH" secondAttribute="trailing" constant="10" id="DQQ-hi-Xp2"/>
+                            <constraint firstItem="PY4-jJ-5ea" firstAttribute="leading" secondItem="gbz-JR-po9" secondAttribute="leading" constant="10" id="HBb-vf-TAW"/>
+                            <constraint firstAttribute="trailing" secondItem="PY4-jJ-5ea" secondAttribute="trailing" constant="7" id="Nke-3G-8Xl"/>
+                            <constraint firstItem="PY4-jJ-5ea" firstAttribute="top" secondItem="dSX-kw-8mx" secondAttribute="bottom" constant="15" id="wuS-OK-WHA"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="qt7-Bg-EZg"/>
+                    <navigationItem key="navigationItem" title="Compose" id="qt7-Bg-EZg">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="vc6-gv-2uz"/>
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="dlL-bc-o4h">
+                            <connections>
+                                <action selector="onSend:" destination="oFv-OB-Mos" id="x2z-4t-yKG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="updateTextView" destination="PY4-jJ-5ea" id="A8o-h7-b9S"/>
+                        <segue destination="gzv-Bk-Lvb" kind="push" identifier="returnHome" id="1DI-EH-LSp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYD-3v-KCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1545" y="179"/>
+            <point key="canvasLocation" x="1653" y="159"/>
         </scene>
         <!--navController-->
         <scene sceneID="mBp-cY-rA1">
@@ -190,4 +225,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="1DI-EH-LSp"/>
+    </inferredMetricsTieBreakers>
 </document>
